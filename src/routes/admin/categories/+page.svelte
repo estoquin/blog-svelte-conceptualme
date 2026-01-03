@@ -16,16 +16,10 @@
 		editSlug = cat.slug ?? '';
 	}
 
-	async function submitDelete(id: number) {
-		const fd = new FormData();
-		fd.set('deleteCategory', String(id));
-		const res = await fetch('', { method: 'POST', body: fd });
-		if (res.redirected) {
-			window.location.href = res.url;
-		} else {
-			location.reload();
-		}
-	}
+    async function submitDelete(id: number) {
+        // Deletion is not available in static build. This is a placeholder for a dynamic endpoint.
+        alert('Delete is not available in the static build.');
+    }
 </script>
 
 <EntityLayout>

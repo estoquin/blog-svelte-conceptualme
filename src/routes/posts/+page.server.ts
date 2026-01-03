@@ -1,6 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { getAllPosts } from '$lib/database/posts';
-import { getPostsByFilter } from '$lib/database/posts';
+import { getAllPosts, getPostsByFilter } from '$lib/content';
 
 export const load: PageServerLoad = async ({ url }) => {
 	const category = url.searchParams.get('category');

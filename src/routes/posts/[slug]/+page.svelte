@@ -37,30 +37,7 @@
 
     <section class="mt-12 pt-8 border-t border-gray-200 w-full">
         <h2 class="text-2xl font-semibold mb-4">Comments</h2>
-        {#if comments && comments.length > 0}
-            <ul class="space-y-4 mb-6">
-                {#each comments as c}
-                    <Comment comment={c} />
-                {/each}
-            </ul>
-        {/if}
-        <form method="post" class="space-y-3">
-            <div>
-                <label for="author" class="block text-sm font-medium mb-1">Name</label>
-                <input id="author" name="author" class="w-full border  px-3 py-2" />
-            </div>
-            <div>
-                <label for="email" class="block text-sm font-medium mb-1">Email (optional)</label>
-                <input id="email" name="email" type="email" class="w-full border  px-3 py-2" />
-            </div>
-            <div>
-                <label for="comment" class="block text-sm font-medium mb-1">Comment</label>
-                <textarea id="comment" name="content" required class="w-full border  px-3 py-2 h-28"></textarea>
-            </div>
-            <div>
-                <button type="submit" class="bg-green-600 text-white px-4 py-2 ">Post comment</button>
-            </div>
-        </form>
+        <p class="text-gray-600">Comments are disabled on this static site. To enable comments consider using a third-party provider or serverless function.</p>
     </section>
     <footer class="mt-12 pt-8 border-t border-gray-200">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">

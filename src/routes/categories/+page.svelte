@@ -17,6 +17,15 @@
 		}
 		return Box;
 	}
+
+	function capitalize(name: string) {
+		if (!name) return '';
+		return name
+			.replace(/-/g, ' ')
+			.split(' ')
+			.map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+			.join(' ');
+	}
 </script>
 
 <svelte:head>
@@ -30,7 +39,7 @@
 			<li>
 				<a href={`/posts?category=${encodeURIComponent(category.name)}`} class="flex items-center gap-4 px-6 py-5 bg-white shadow hover:bg-green-50 transition group" style="border-radius:0;">
 					<svelte:component this={resolveIcon(category.slug)} class="w-8 h-8 text-gray-600 group-hover:text-gray-800 transition" />
-					<span class="text-2xl font-semibold text-gray-900 group-hover:text-blue-800 transition">{category.name}</span>
+					<span class="text-2xl font-semibold text-gray-900 group-hover:text-blue-800 transition">{capitalize(category.name)}</span>
 				</a>
 			</li>
 		{/each}

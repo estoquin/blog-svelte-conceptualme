@@ -1,5 +1,5 @@
 import type { PageServerLoad } from './$types';
-import { getAllCategories } from '$lib/database/categories';
+import { getAllPosts } from '$lib/content';
 
 const ICON_MAP: Record<string, string> = {
     frontend: 'Code',
@@ -23,6 +23,12 @@ const ICON_MAP: Record<string, string> = {
 };
 
 export const load: PageServerLoad = async () => {
-    const categories = await getAllCategories();
+    const posts = await getAllPosts();
+    const map: Record<string, number> = {};
+    for (const p of posts) {
+        const c = p.metadata.category || 'uncategorized';
+        map[c] = (map[c] || 0) + 1;
+    }
+    const categories = Object.keys(map).map((name) => ({ name, count: map[name], slug: name }));
     return { categories, iconMap: ICON_MAP };
 };

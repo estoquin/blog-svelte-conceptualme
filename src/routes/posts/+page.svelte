@@ -32,7 +32,7 @@
     	<section class={listMode ? "flex flex-col gap-4" : "grid md:grid-cols-2 lg:grid-cols-3 gap-6"}>
 			{#each data.posts as post}
 				<PostCard post={{ ...post, image: post.image ?? '', excerpt: post.excerpt ?? '' }} headingLevel="h2" {listMode} colorFilter="green">
-					<a href="/posts/{post.slug}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
+					<a href={`/posts/${post.slug}`} class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold">
 						Read More
 						<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>

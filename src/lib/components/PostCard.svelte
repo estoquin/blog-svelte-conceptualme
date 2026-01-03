@@ -53,7 +53,11 @@
 
 <article class={articleClass}>
 	<div class={imageWrapperClass}>
-		<img src={post.image} alt={post.title} class={base.image} />
+		{#if post.image}
+			<img src={post.image} alt={post.title} class={base.image} />
+		{:else}
+			<img src={`https://picsum.photos/seed/${encodeURIComponent(post.slug || post.title)}/1200/600`} alt={post.title} class={base.image} />
+		{/if}
 		{#if colorFilter !== 'none'}
 			<div class={overlayClass}></div>
 		{/if}
@@ -65,7 +69,11 @@
 			<h3 class={headingClass}>{post.title}</h3>
 		{/if}
 		<p class="text-gray-600 text-sm mb-2">
-			{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+			{#if post.date}
+				{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+			{:else}
+				Invalid Date
+			{/if}
 		</p>
 		<p class="text-gray-700 mb-3 truncate">{post.excerpt}</p>
 		<slot>

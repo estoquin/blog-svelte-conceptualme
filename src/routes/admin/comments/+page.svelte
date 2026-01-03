@@ -4,15 +4,8 @@
 	const comments = data.comments as any[] ?? [];
 
 	async function handleDelete(id: number) {
-		if (!confirm('Delete this comment?')) return;
-		const fd = new FormData();
-		fd.set('deleteComment', String(id));
-		const res = await fetch('', { method: 'POST', body: fd });
-		if (res.redirected) {
-			window.location.href = res.url;
-		} else {
-			location.reload();
-		}
+		// Deletion is not available in static build. In a dynamic setup this would POST to the server.
+		alert('Delete is not available in the static build.');
 	}
 </script>
 

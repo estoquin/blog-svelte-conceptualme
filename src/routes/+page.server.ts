@@ -1,9 +1,8 @@
 import type { PageServerLoad } from './$types';
-import { getAllPosts } from '$lib/database/posts';
+import { getLastPosts } from '$lib/content';
 export const load: PageServerLoad = async () => {
-	const posts = await getAllPosts();
-	const recentPosts = posts.slice(0, 3);
+	const posts = await getLastPosts(3);
 	return {
-		posts: recentPosts
+		posts
 	};
 };
