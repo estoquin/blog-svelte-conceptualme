@@ -1,10 +1,7 @@
 <script lang="ts">
-    import type { PageData } from "./$types";
     import HomeHero from "$lib/sections/HomeHero.svelte";
     import HomeAbout from "$lib/sections/HomeAbout.svelte";
-    import HomeRecent from "$lib/sections/HomeRecent.svelte";
     import HomeAction from "$lib/sections/HomeAction.svelte";
-    let { data }: { data: PageData } = $props();
 </script>
 <svelte:head>
     <title>Home - ConceptualMe</title>
@@ -13,7 +10,6 @@
     <HomeHero textLayout="center"/>
     <div class="px-8 flex flex-col gap-12 container mx-auto">
         <HomeAbout/>
-        <HomeRecent {data}/>
     </div>
     <HomeAction/>
 </div>
